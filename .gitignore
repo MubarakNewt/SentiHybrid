@@ -23,3 +23,19 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Ignore Python venv and big data
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Models & data
+*.pkl
+*.h5
+*.csv
+
+# OS
+.DS_Store
+Thumbs.db
