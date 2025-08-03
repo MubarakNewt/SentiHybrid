@@ -1,0 +1,21 @@
+# Ignore Python virtual envs
+venv/
+.venv/
+
+# Ignore Git
+.git/
+.gitignore
+
+# Ignore OS files
+.DS_Store
+
+# Ignore local logs
+*.log
+
+# ✅ But DO NOT ignore models & preprocess folders!
+# If you still have a wildcard like this, comment it:
+# *.h5
+# *.pkl
+
+# ✅ Ignore node_modules if any (if you have a mixed repo)
+node_modules/

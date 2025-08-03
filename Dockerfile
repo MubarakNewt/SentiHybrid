@@ -1,13 +1,18 @@
-# Use Python slim image
+# ✅ Use official Python slim image
 FROM python:3.11-slim
 
+# ✅ Set working directory inside the container
 WORKDIR /app
 
-COPY . .
+# ✅ Copy only requirements first for better layer caching
+COPY requirements.txt .
 
+# ✅ Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
+# ✅ Copy your backend code and config
+COPY backend/ ./backend/
+COPY fly.toml ./fly.toml
 
-# ✅ Use 1 worker for free Fly.io plan
-CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:8080", "backend.app:app"]
+# ✅ Explicitly copy your models & preprocess folders if needed
+# (
